@@ -25,7 +25,7 @@ BOARD_PATH := device/oneplus/oneplus3
 TARGET_NO_BOOTLOADER := true
 TARGET_OTA_ASSERT_DEVICE := none
 TARGET_BOOTLOADER_BOARD_NAME := msm8996
-TARGET_USE_SDCLANG := true
+#TARGET_USE_SDCLANG := true
 
 # Platform
 TARGET_BOARD_PLATFORM := msm8996
@@ -39,7 +39,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := kryo
@@ -49,7 +49,8 @@ TARGET_USES_64_BIT_BINDER := true
 
 ENABLE_CPUSETS := true
 
-BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom androidboot.selinux=enforcing user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.bootdevice=624000.ufshc
+BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 cma=32M@0-0xffffffff androidboot.bootdevice=624000.ufshc
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x02000000
@@ -58,7 +59,7 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_APPEND_DTB := true
+#TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_SOURCE := kernel/oneplus/msm8996
 TARGET_KERNEL_CONFIG := omni_oneplus3_defconfig
 
@@ -127,8 +128,8 @@ AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_USES_ALSA_AUDIO := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
-USE_CUSTOM_AUDIO_POLICY := 1
-USE_XML_AUDIO_POLICY_CONF := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
+#USE_XML_AUDIO_POLICY_CONF := 1
 TARGET_USES_QCOM_MM_AUDIO := true
 # default is anyway false but just to keep in mind
 AUDIO_FEATURE_ENABLED_PLAYBACK_ULL := false
@@ -184,11 +185,11 @@ BOARD_NFC_CHIPSET := pn548
 BOARD_NFC_HAL_SUFFIX := $(TARGET_BOARD_PLATFORM)
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
+#BOARD_ANT_WIRELESS_DEVICE := "qualcomm-uart"
 
 # Crypto
-TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := $(BOARD_PATH)/cryptfs_hw
+#TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_CRYPTFS_HW_PATH := $(BOARD_PATH)/cryptfs_hw
 
 # CNE and DPM
 BOARD_USES_QCNE := true
@@ -213,6 +214,8 @@ TARGET_FS_CONFIG_GEN := $(BOARD_PATH)/configs/config.fs
 
 # for offmode charging
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+ALLOW_MISSING_DEPENDENCIES := true
 
 # Recovery:Start
 TARGET_RECOVERY_FSTAB := $(BOARD_PATH)/recovery/recovery.fstab
